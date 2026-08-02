@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
+import { socialLinks } from "../data/socialLinks";
 ---
 
 <Layout title="Contact">
@@ -19,7 +20,10 @@ Email
 
 <p>
 
-your.email@example.com
+Via fortiss: bergemann@fortiss.org
+<br>
+<br>
+Via TUM: sebastian.bergemann@tum.de
 
 </p>
 
@@ -35,37 +39,49 @@ Institution
 
 <p>
 
-Institute
+fortiss GmbH <br>
+Research Institute of the Free State of Bavaria for software-intensive systems <br>
+Guerickestr. 25, 80805 Munich, Germany <br><br>
 
-Street
-
-City
+Technical University of Munich <br>
+Arcisstr. 21, 80333 Munich, Germany
 
 </p>
 
 </div>
 
-<div class="card">
+<div class="social-grid">
 
-<h3>
+{
 
-Profiles
+socialLinks.map(link => (
 
-</h3>
+<a
+    class="social-card"
+    href={link.url}
+    target="_blank"
+    rel="noopener noreferrer"
+>
 
-<ul>
+    <div class="social-icon">
+        <i class={link.icon}></i>
+    </div>
 
-<li>GitHub</li>
+    <div class="social-content">
 
-<li>GitLab</li>
+        <h3>{link.name}</h3>
 
-<li>Google Scholar</li>
+        <p>{link.description}</p>
 
-<li>ORCID</li>
+    </div>
 
-<li>LinkedIn</li>
+    <i class="fa-solid fa-arrow-up-right-from-square external-icon"></i>
 
-</ul>
+</a>
+
+))
+
+}
 
 </div>
 
