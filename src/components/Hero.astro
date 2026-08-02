@@ -1,0 +1,58 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="hero">
+
+    <img
+        src="public/images/profile.jpg"
+        alt="Profile picture"
+        class="profile-image"
+    />
+
+    <div>
+
+        <h1>
+
+            Sebastian Bergemann
+
+        </h1>
+
+        <h2>
+
+            Researcher • Software Engineer • PhD Candidate
+
+        </h2>
+
+        <p>
+
+            Lorem ipsum dolor sit amet.
+            This introduction will later describe
+            your research interests and background.
+
+        </p>
+
+        <div class="button-row">
+
+            <Button
+                href="/files/cv.pdf"
+                primary={true}
+            >
+
+                Download CV
+
+            </Button>
+
+            <Button
+                href="/projects"
+            >
+
+                Projects
+
+            </Button>
+
+        </div>
+
+    </div>
+
+</section>

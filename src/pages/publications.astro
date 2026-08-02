@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import PublicationCard from "../components/PublicationCard.astro";
+---
+
+<Layout title="Publications">
+
+<section class="container">
+
+<Section title="Journal Articles">
+
+<PublicationCard
+title="Example Journal Paper"
+venue="Journal of Software Engineering"
+year={2026}
+/>
+
+<PublicationCard
+title="Another Journal Paper"
+venue="Software and Systems Modeling"
+year={2025}
+/>
+
+</Section>
+
+<Section title="Conference Papers">
+
+<PublicationCard
+title="Conference Paper"
+venue="MODELS"
+year={2025}
+/>
+
+<PublicationCard
+title="Another Conference"
+venue="ICSE"
+year={2024}
+/>
+
+</Section>
+
+</section>
+
+</Layout>

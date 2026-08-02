@@ -1,0 +1,29 @@
+---
+interface Props{
+
+href:string;
+
+primary?:boolean;
+
+}
+
+const{
+
+href,
+
+primary=false
+
+}=Astro.props;
+---
+
+<a
+
+href={href}
+
+class={primary?"button":"button secondary"}
+
+>
+
+<slot/>
+
+</a>

@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+---
+
+<Layout title="Projects">
+
+<section class="container">
+
+<Section title="Projects">
+
+<div class="grid">
+
+<ProjectCard
+title="Confidential Consistency Checking"
+description="Lorem ipsum."
+tags={["Java","TEE","EMF"]}
+/>
+
+<ProjectCard
+title="Central Consistency Checker C4"
+description="Lorem ipsum."
+tags={["Java","OCL","MBSE"]}
+/>
+
+<ProjectCard
+title="Prototype 3"
+description="Lorem ipsum."
+tags={["Docker","Azure"]}
+/>
+
+<ProjectCard
+title="Prototype 4"
+description="Lorem ipsum."
+tags={["Neo4j","EMF"]}
+/>
+
+</div>
+
+</Section>
+
+</section>
+
+</Layout>

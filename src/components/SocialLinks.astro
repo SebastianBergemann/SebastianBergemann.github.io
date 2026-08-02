@@ -1,0 +1,59 @@
+---
+const links = [
+
+{
+icon:"fa-brands fa-github",
+label:"GitHub",
+url:"https://github.com/SebastianBergemann"
+},
+
+{
+icon:"fa-brands fa-gitlab",
+label:"GitLab",
+url:"https://git.fortiss.org/bergemann"
+},
+
+{
+icon:"ai ai-orcid",
+label:"ORCID",
+url:"https://orcid.org/0000-0002-8135-7487"
+},
+
+{
+icon:"ai ai-google-scholar",
+label:"Scholar",
+url:"https://scholar.google.com/citations?hl=en&user=6jcx-9AAAAAJ"
+},
+
+{
+icon:"fa-brands fa-linkedin",
+label:"LinkedIn",
+url:"https://www.linkedin.com/in/sebastian-bergemann"
+}
+
+];
+---
+
+<div class="footer-links">
+
+{
+
+links.map(link=>(
+
+<a
+href={link.url}
+target="_blank"
+rel="noopener noreferrer"
+>
+
+<i class={link.icon}></i>
+
+{link.label}
+
+</a>
+
+))
+
+}
+
+</div>

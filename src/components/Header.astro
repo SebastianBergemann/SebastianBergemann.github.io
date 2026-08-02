@@ -1,0 +1,46 @@
+---
+const current = Astro.url.pathname;
+
+const navItems = [
+    { href: "/", label: "Home" },
+    { href: "/projects", label: "Projects" },
+    { href: "/publications", label: "Publications" },
+    { href: "/cv", label: "CV" },
+    { href: "/contact", label: "Contact" },
+];
+---
+
+<header class="site-header">
+
+    <div class="container header-content">
+
+        <a href="/" class="logo">
+            Sebastian Bergemann
+        </a>
+
+        <nav>
+
+            <ul class="nav-list">
+
+                {navItems.map(item => (
+
+                    <li>
+
+                        <a
+                            href={item.href}
+                            class={current === item.href ? "active" : ""}
+                        >
+                            {item.label}
+                        </a>
+
+                    </li>
+
+                ))}
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
