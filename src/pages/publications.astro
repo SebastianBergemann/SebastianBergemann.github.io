@@ -8,34 +8,132 @@ import PublicationCard from "../components/PublicationCard.astro";
 
 <section class="container">
 
-<Section title="Journal Articles">
+<Section title="Featured Works">
 
 <PublicationCard
-title="Example Journal Paper"
-venue="Journal of Software Engineering"
-year={2026}
+featured={true}
+type="conference"
+authors="Sebastian Bergemann; Andreas Bayha; Derui Zhu; Mohammad Sadeghi; Colin Atkinson; Alexander Pretschner"
+doi="10.1109/models-c68889.2025.00053"
+title="Mind the Leak: Formalizing Confidentiality Preservation Assessment of Multi-Model Consistency Checking Systems"
+venue="ACM/IEEE 28th International Conference on Model Driven Engineering Languages and Systems Companion (MODELS-C)"
+year="2025"
+date="2025-10-05"
 />
 
 <PublicationCard
-title="Another Journal Paper"
-venue="Software and Systems Modeling"
-year={2025}
+featured={true}
+type="conference"
+authors="Sebastian Bergemann; Nina Benkendorf"
+doi="10.1145/3652620.3688554"
+title="Modular Consistency Checking Between Heterogeneous Models Without Direct Data Exchange Between Collaborators"
+venue="ACM/IEEE 27th International Conference on Model Driven Engineering Languages and Systems (MODELS-C)"
+year="2024"
+/>
+
+<PublicationCard
+featured={true}
+type="conference"
+authors="Bergemann, Sebastian"
+doi="10.1109/MODELS-C59198.2023.00039"
+title="Towards Confidentiality in Multi-Model Inconsistency Detection for Systems Engineering"
+venue="ACM/IEEE 26th International Conference on Model Driven Engineering Languages and Systems (MODELS-C)"
+year="2023"
+/>
+
+<PublicationCard
+featured={true}
+type="conference"
+authors="Sebastian Bergemann"
+doi="10.18420/modellierung2022ws-009"
+title="Challenges in Multi-View Model Consistency Management for Systems Engineering"
+venue="Gesellschaft für Informatik e.V."
+year="2022"
 />
 
 </Section>
 
-<Section title="Conference Papers">
+<Section title="All Works">
 
 <PublicationCard
-title="Conference Paper"
-venue="MODELS"
-year={2025}
+type="default"
+authors="Sebastian Bergemann; Derui Zhu; Andreas Bayha; Mohammad Sadeghi; Colin Atkinson; Alexander Pretschner"
+doi="10.2139/ssrn.6963913"
+title="Confidentiality and Practicality of Trusted Execution Environments for Cross-Organizational Multi-Model Consistency Checking"
+venue="Preprint"
+year="2026"
 />
 
 <PublicationCard
-title="Another Conference"
-venue="ICSE"
-year={2024}
+type="conference"
+authors="Derui Zhu; Sebastian Bergemann; Mohammad Sadeghi; Colin Atkinson; Alexander Pretschner"
+doi="10.1145/3786146.3788645"
+title="Data Protection Vulnerabilities Assessment for Cross-Organizational Consistency Checking in TEE"
+venue="Conference paper"
+year="2026"
+/>
+
+<PublicationCard
+type="book"
+authors="Sebastian Bergemann"
+doi="TODO"
+title="3.2 Challenges – The Industrial View - Introduction of a Running Example"
+venue="Book chapter"
+year="2025"
+/>
+
+<PublicationCard
+type="book"
+authors="Sebastian Bergemann"
+doi="TODO"
+title="6.5 Usage of the Language Constructs in the SPES Methodology - Technical Viewpoint"
+venue="Book chapter"
+year="2025"
+/>
+
+<PublicationCard
+type="book"
+authors="Sebastian Bergemann"
+doi="TODO"
+title="6.6 Usage of the Language Constructs in the SPES Methodology - Modeling of Subsystems"
+venue="Book chapter"
+year="2025"
+/>
+
+<PublicationCard
+type="journal"
+authors="Ana Petrovska; Stefan Kugele; Thomas Hutzelmann; Theo Beffart; Sebastian Bergemann; Alexander Pretschner"
+doi="10.1016/j.infsof.2022.106866"
+title="Defining adaptivity and logical architecture for engineering (smart) self-adaptive cyber–physical systems"
+venue="Information and Software Technology"
+year="2022"
+/>
+
+<PublicationCard
+type="conference"
+authors="Petrovska, Ana; Neuss, Malte; Bergemann, Sebastian; Büchner, Martin; Shohab, Ansab"
+doi="TODO"
+title="Smart Self-Adaptive Cyber-Physical Systems: How can Exploration and Learning Improve Performance in a Partially Observable Multi-Agent Context?"
+venue="ADAPTIVE 2021"
+year="2021"
+/>
+
+<PublicationCard
+type="conference"
+authors="Kirill Dorofeev; Sebastian Bergemann; Tarik Terzimehic; Julian Grothoff; Michael Thies; Alois Zoitl"
+doi="10.1109/etfa45728.2021.9613728"
+title="Generation of the Orchestrator Code for Skill-Based Automation Systems"
+venue="IEEE International Conference on Emerging Technologies and Factory Automation (ETFA)"
+year="2021"
+/>
+
+<PublicationCard
+type="conference"
+authors="Tarik Terzimehic; Kirill Dorofeev; Sebastian Bergemann; Alois Zoitl; Sebastian Voss"
+doi="10.1109/etfa45728.2021.9613327"
+title="Towards Service Deployment and Composition in Industry 4.0"
+venue="IEEE International Conference on Emerging Technologies and Factory Automation (ETFA)"
+year="2021"
 />
 
 </Section>

@@ -1,43 +1,94 @@
 ---
-interface Props{
-
-title:string;
-
-venue:string;
-
-year:number;
-
+interface Props {
+    title: string;
+    venue: string;
+    year: string;
+    date?: string;
+    featured?: boolean;
+    type?: "default" | "book" | "journal" | "conference";
+    authors?: string;
+    doi?: string;
 }
 
-const{
+const {
+    title,
+    venue,
+    year,
+    date,
+    featured = false,
+    type = "default",
+    authors,
+    doi,
+} = Astro.props;
 
-title,
+const iconMap = {
+    default: "fa-solid fa-file-lines",
+    book: "fa-solid fa-book",
+    journal: "fa-solid fa-newspaper",
+    conference: "fa-solid fa-chalkboard-user",
+};
 
-venue,
-
-year
-
-}=Astro.props;
+const typeLabelMap = {
+    default: "Preprint",
+    book: "Book chapter",
+    journal: "Journal article",
+    conference: "Conference paper",
+};
 ---
 
-<div class="card">
+<div class="timeline-item">
 
-<h3>
+    <div class="timeline-marker">
+        <span class="timeline-bubble">{year}</span>
+    </div>
 
-{title}
+    <div class="card publication-card">
 
-</h3>
+        <div class="publication-card-head">
 
-<p>
+            <span class="publication-type-icon">
+                <i class={iconMap[type]}></i>
+            </span>
 
-{venue}
+            <div class="publication-card-copy">
 
-</p>
+                {featured && <span class="publication-featured">Featured work</span>}
 
-<p>
+                <p class="publication-type-label">{typeLabelMap[type]}</p>
 
-{year}
+                <h3>
+                    {title}
+                </h3>
 
-</p>
+                <p class="publication-venue">
+                    {venue}
+                </p>
+
+                <p class="publication-date">
+                    {date ?? year}
+                </p>
+
+                {authors && (
+                    <p class="publication-authors">
+                        <strong>Authors:</strong> {authors}
+                    </p>
+                )}
+
+                <p class="publication-doi">
+                    <strong>DOI:</strong>
+                    <a
+                        href={doi ? (doi.startsWith("http") ? doi : `https://doi.org/${doi}`) : "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {doi ?? "TODO"}
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
