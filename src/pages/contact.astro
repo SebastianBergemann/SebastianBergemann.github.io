@@ -10,22 +10,59 @@ import { socialLinks } from "../data/socialLinks";
 
 <Section title="Contact">
 
-<div class="card">
+<div class="contact-cluster">
 
-<h3>
+    <div class="contact-cluster-header">
 
-Email
+        <span>Email</span>
 
-</h3>
+    </div>
 
-<p>
+    <div class="contact-grid">
 
-Via fortiss: bergemann@fortiss.org
-<br>
-<br>
-Via TUM: sebastian.bergemann@tum.de
+        <div class="contact-card">
 
-</p>
+            <a class="contact-card-main" href="mailto:bergemann@fortiss.org">
+
+                <span class="contact-label">Fortiss</span>
+                <span class="contact-city">Munich</span>
+                <span class="contact-email">bergemann@fortiss.org</span>
+
+            </a>
+
+            <button
+                class="copy-button"
+                type="button"
+                data-copy="bergemann@fortiss.org"
+                aria-label="Copy Fortiss email address"
+            >
+                Copy
+            </button>
+
+        </div>
+
+        <div class="contact-card">
+
+            <a class="contact-card-main" href="mailto:sebastian.bergemann@tum.de">
+
+                <span class="contact-label">TUM</span>
+                <span class="contact-city">Munich</span>
+                <span class="contact-email">sebastian.bergemann@tum.de</span>
+
+            </a>
+
+            <button
+                class="copy-button"
+                type="button"
+                data-copy="sebastian.bergemann@tum.de"
+                aria-label="Copy TUM email address"
+            >
+                Copy
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -88,5 +125,38 @@ socialLinks.map(link => (
 </Section>
 
 </section>
+
+<script is:inline>
+    const copyButtons = document.querySelectorAll(".copy-button");
+
+    copyButtons.forEach((button) => {
+        button.addEventListener("click", async (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const value = button.dataset.copy;
+
+            try {
+                await navigator.clipboard.writeText(value);
+                const previousText = button.textContent;
+                button.textContent = "Copied";
+                button.classList.add("copied");
+
+                window.setTimeout(() => {
+                    button.textContent = previousText;
+                    button.classList.remove("copied");
+                }, 1200);
+            } catch {
+                button.textContent = "Copy failed";
+                button.classList.add("copied");
+
+                window.setTimeout(() => {
+                    button.textContent = "Copy";
+                    button.classList.remove("copied");
+                }, 1200);
+            }
+        });
+    });
+</script>
 
 </Layout>

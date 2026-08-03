@@ -40,9 +40,24 @@ const {
     />
 
     <meta
+        id="theme-color"
         name="theme-color"
         content="#2563eb"
     />
+
+    <script is:inline>
+        try {
+            const savedTheme = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = savedTheme ?? (prefersDark ? "dark" : "light");
+        } catch {
+            document.documentElement.dataset.theme = "light";
+        }
+        document.querySelector("#theme-color").setAttribute(
+            "content",
+            document.documentElement.dataset.theme === "dark" ? "#111827" : "#f8fafc"
+        );
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -88,6 +103,28 @@ const {
 	</main>
 
     <Footer />
+
+    <script is:inline>
+        const themeToggle = document.querySelector(".theme-toggle");
+        const root = document.documentElement;
+        const themeColor = document.querySelector("#theme-color");
+
+        const updateThemeControl = () => {
+            const isDark = root.dataset.theme === "dark";
+            themeToggle.setAttribute("aria-pressed", String(isDark));
+            themeToggle.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} mode`);
+            themeToggle.querySelector("span").textContent = isDark ? "☀" : "◐";
+            themeColor.setAttribute("content", isDark ? "#111827" : "#f8fafc");
+        };
+
+        updateThemeControl();
+
+        themeToggle.addEventListener("click", () => {
+            root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+            localStorage.setItem("theme", root.dataset.theme);
+            updateThemeControl();
+        });
+    </script>
 
 </body>
 
