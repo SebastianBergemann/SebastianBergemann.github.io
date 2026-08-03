@@ -468,25 +468,52 @@ position:relative;
 
 }
 
-.publication-venue,
-.publication-date,
-.publication-authors,
-.publication-doi{
+.publication-detail-list{
 
-margin:0;
+margin:4px 0 0 18px;
+padding-left:18px;
 
 }
 
-.publication-date,
-.publication-authors,
-.publication-doi{
+.publication-detail-list li{
 
-color:var(--muted);
+margin:4px 0;
+padding-left:4px;
 
 }
 
-.publication-date{
-	margin-top:2px;
+.publication-detail-list li::marker{
+
+color:var(--primary);
+
+}
+
+.publication-detail-list strong{
+
+color:var(--text);
+
+}
+
+.publication-detail-list a{
+
+color:var(--primary);
+
+text-decoration:none;
+
+}
+
+.publication-detail-list a:hover,
+.publication-detail-list a:focus-visible{
+
+text-decoration:underline;
+
+}
+
+.publication-author-self{
+
+text-decoration:underline;
+text-decoration-thickness:2px;
+text-underline-offset:2px;
 
 }
 

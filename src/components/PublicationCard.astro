@@ -34,6 +34,9 @@ const typeLabelMap = {
     journal: "Journal article",
     conference: "Conference paper",
 };
+
+const authorSelfName = "Sebastian Bergemann";
+const authorsList = authors?.split(";").map((author) => author.trim()).filter(Boolean) ?? [];
 ---
 
 <div class="timeline-item">
@@ -59,31 +62,43 @@ const typeLabelMap = {
                 <h3>
                     {title}
                 </h3>
+                
+                <ul class="cv-detail-list publication-detail-list">
+                    <li>
+                        <strong>Date:</strong> {date ?? year}
+                    </li>
 
-                <p class="publication-venue">
-                    {venue}
-                </p>
+                    <li>
+                        <strong>Venue:</strong> {venue}
+                    </li>
 
-                <p class="publication-date">
-                    {date ?? year}
-                </p>
+                    {authorsList.length > 0 && (
+                        <li>
+                            <strong>Authors: </strong>
+                            {authorsList.map((author, index) => (
+                                <>
+                                    {author === authorSelfName ? (
+                                        <span class="publication-author-self">{author}</span>
+                                    ) : (
+                                        author
+                                    )}
+                                    {index < authorsList.length - 1 && <span>; </span>}
+                                </>
+                            ))}
+                        </li>
+                    )}
 
-                {authors && (
-                    <p class="publication-authors">
-                        <strong>Authors:</strong> {authors}
-                    </p>
-                )}
-
-                <p class="publication-doi">
-                    <strong>DOI:</strong>
-                    <a
-                        href={doi ? (doi.startsWith("http") ? doi : `https://doi.org/${doi}`) : "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {doi ?? "TODO"}
-                    </a>
-                </p>
+                    <li>
+                        <strong>DOI: </strong>
+                        <a
+                            href={doi ? (doi.startsWith("http") ? doi : `https://doi.org/${doi}`) : "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {doi ?? "N/A"}
+                        </a>
+                    </li>
+                </ul>
 
             </div>
 
