@@ -376,6 +376,34 @@ color:var(--muted);
 
 }
 
+.cv-location-line{
+
+margin:0 0 6px;
+
+}
+
+.cv-detail-list{
+
+margin:0 0 8px 18px;
+padding-left:18px;
+
+color:var(--muted);
+
+}
+
+.cv-detail-list li{
+
+margin:4px 0;
+padding-left:4px;
+
+}
+
+.cv-detail-list li::marker{
+
+color:var(--primary);
+
+}
+
 .publication-card{
 
 position:relative;
