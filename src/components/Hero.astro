@@ -11,52 +11,49 @@ import Button from "./Button.astro";
     />
 
     <div>
-
         <h1>
-
             Sebastian Bergemann
-
         </h1>
 
         <h2>
-
             Researcher • Software Engineer • PhD Candidate
-
         </h2>
 
         <p>
-
-            Lorem ipsum dolor sit amet.
-
+            <b>This site is currently under construction. It will be updated with more content in the future.</b>
+            <br><br>
 			TODOs:
-			A timeline of education, employment, awards, and major milestones. 
-			A prominent hero section with your photo, name, and a short research statement. 
-			Update CV PDF.
-			Search engine metadata (Open Graph tags, favicon, etc.). 
-			Dark mode. 
-			Mobile responsiveness. 
-
+			<ul class="cv-detail-list">
+            <li>Fill projects.</li>
+			<li>Update hero section and interests.</li>
+			<li>Update CV PDF.</li>
+			<li>Search engine metadata (Open Graph tags, favicon, etc.).</li>
+			<li>Mobile responsiveness.</li>
+            </ul> 
         </p>
 
         <div class="button-row">
-
             <Button
                 href="/files/cv_sebastian_bergemann.pdf"
                 primary={true}
             >
-
                 Download CV
-
             </Button>
-
+            <Button
+                href="/cv"
+            >
+                View career timeline
+            </Button>
             <Button
                 href="/projects"
             >
-
-                Projects
-
+                View projects
             </Button>
-
+            <Button
+                href="/publications"
+            >
+                View publications
+            </Button>
         </div>
 
     </div>

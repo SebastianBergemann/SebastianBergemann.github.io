@@ -89,7 +89,7 @@ const authorsList = authors?.split(";").map((author) => author.trim()).filter(Bo
                     )}
 
                     <li>
-                        <strong>DOI: </strong>
+                        <strong>DOI/URL: </strong>
                         <a
                             href={doi ? (doi.startsWith("http") ? doi : `https://doi.org/${doi}`) : "#"}
                             target="_blank"
