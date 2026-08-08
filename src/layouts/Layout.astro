@@ -1,18 +1,56 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { socialLinks } from "../data/socialLinks";
 
 import "../styles/global.css";
 
 export interface Props {
     title: string;
     description?: string;
+    isProfilePage?: boolean;
 }
 
 const {
     title,
-    description = "Personal website of Sebastian Bergemann."
+    description = "Personal homepage of Sebastian Bergemann: profile, projects, publications, curriculum vitae, and contact information.",
+    isProfilePage = false
 } = Astro.props;
+
+const site = Astro.site ?? new URL(Astro.url.origin);
+const canonicalURL = new URL(Astro.url.pathname, site);
+const imageURL = new URL("/images/profile.jpg", site);
+const sitemapURL = new URL("/sitemap-index.xml", site);
+
+const structuredData = isProfilePage
+    ? JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": `${site.href}#website`,
+                "url": site.href,
+                "name": "Sebastian Bergemann",
+                "inLanguage": "en"
+            },
+            {
+                "@type": "ProfilePage",
+                "@id": `${canonicalURL.href}#profile`,
+                "url": canonicalURL.href,
+                "name": title,
+                "mainEntity": { "@id": `${site.href}#person` }
+            },
+            {
+                "@type": "Person",
+                "@id": `${site.href}#person`,
+                "name": "Sebastian Bergemann",
+                "url": site.href,
+                "image": imageURL.href,
+                "sameAs": socialLinks.map(({ url }) => url)
+            }
+        ]
+    })
+    : undefined;
 ---
 
 <!DOCTYPE html>
@@ -27,12 +65,30 @@ const {
         content="width=device-width, initial-scale=1.0"
     />
 
-    <title>{title} | Sebastian Bergemann</title>
+    <title>{title}</title>
 
     <meta
         name="description"
         content={description}
     />
+
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href={sitemapURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Sebastian Bergemann" />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:alt" content="Portrait of Sebastian Bergemann" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+    <meta name="twitter:image:alt" content="Portrait of Sebastian Bergemann" />
 
     <meta
         name="author"
@@ -91,6 +147,8 @@ const {
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
     />
+
+    {structuredData && <script type="application/ld+json" set:html={structuredData} />}
 
 </head>
 
