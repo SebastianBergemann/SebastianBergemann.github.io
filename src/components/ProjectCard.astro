@@ -9,6 +9,12 @@ description:string;
 
 tags:string[];
 
+period:string;
+
+organization:string;
+
+href:string;
+
 }
 
 const{
@@ -17,20 +23,38 @@ title,
 
 description,
 
-tags
+tags,
+
+period,
+
+organization,
+
+href
 
 }=Astro.props;
 ---
 
-<div class="card">
+<article class="card project-card">
 
 <h3>
 
+<a href={href} target="_blank" rel="noopener noreferrer">
+
 {title}
+
+</a>
 
 </h3>
 
-<p>
+<p class="project-meta">
+
+<span>{period}</span>
+
+<span>{organization}</span>
+
+</p>
+
+<p class="project-description">
 
 {description}
 
@@ -50,4 +74,4 @@ tags.map(tag=>(
 
 </div>
 
-</div>
+</article>
