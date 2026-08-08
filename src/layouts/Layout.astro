@@ -102,6 +102,7 @@ const structuredData = isProfilePage
     />
 
     <script is:inline>
+        document.documentElement.classList.add("js");
         try {
             const savedTheme = localStorage.getItem("theme");
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -166,6 +167,8 @@ const structuredData = isProfilePage
         const themeToggle = document.querySelector(".theme-toggle");
         const root = document.documentElement;
         const themeColor = document.querySelector("#theme-color");
+        const navToggle = document.querySelector(".mobile-nav-toggle");
+        const siteNavigation = document.querySelector(".site-nav");
 
         const updateThemeControl = () => {
             const isDark = root.dataset.theme === "dark";
@@ -182,6 +185,26 @@ const structuredData = isProfilePage
             localStorage.setItem("theme", root.dataset.theme);
             updateThemeControl();
         });
+
+        if (navToggle && siteNavigation) {
+            const closeNavigation = () => {
+                siteNavigation.classList.remove("is-open");
+                navToggle.setAttribute("aria-expanded", "false");
+            };
+
+            navToggle.addEventListener("click", () => {
+                const isOpen = siteNavigation.classList.toggle("is-open");
+                navToggle.setAttribute("aria-expanded", String(isOpen));
+            });
+
+            siteNavigation.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", closeNavigation);
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 800) closeNavigation();
+            });
+        }
     </script>
 
 </body>
