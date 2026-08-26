@@ -7,16 +7,16 @@ export interface SocialLink {
 
 export const socialLinks: SocialLink[] = [
     {
-        name: "GitHub",
-        icon: "fa-brands fa-github",
-        url: "https://github.com/SebastianBergemann",
-        description: "Open-source software and personal projects"
-    },
-    {
         name: "GitLab",
         icon: "fa-brands fa-gitlab",
         url: "https://git.fortiss.org/bergemann",
-        description: "Research software at fortiss"
+        description: "Main development activity"
+    },
+    {
+        name: "GitHub",
+        icon: "fa-brands fa-github",
+        url: "https://github.com/SebastianBergemann",
+        description: "Personal projects (but usually always via GitLab)"
     },
     {
         name: "Google Scholar",
