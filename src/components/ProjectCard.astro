@@ -15,6 +15,10 @@ organization:string;
 
 href:string;
 
+logo:string;
+
+partners?:string[];
+
 }
 
 const{
@@ -31,10 +35,20 @@ organization,
 
 href
 
+,logo,
+
+partners=[]
+
 }=Astro.props;
 ---
 
 <article class="card project-card">
+
+<div class="project-logo-frame">
+
+<img class="project-logo" src={logo} alt={`${title} logo`} />
+
+</div>
 
 <h3>
 
@@ -53,6 +67,22 @@ href
 <span>{organization}</span>
 
 </p>
+
+{
+
+partners.length>0&&(
+
+<p class="project-partners">
+
+<span>Partners:</span>
+
+<span>{partners.slice(0,10).join(" · ")}</span>
+
+</p>
+
+)
+
+}
 
 <p class="project-description">
 
